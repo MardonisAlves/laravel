@@ -14,8 +14,7 @@ body{
 .pagina{
 	background:white;
 	box-shadow: 1px 5px 8px gray;
-	margin-top: -100px;
-	margin: auto;
+	margin-top: 60px;
 	border: 0px solid black;
 }
 #textarea{
@@ -70,6 +69,10 @@ text-align: center;
 }
 .col-md-12{
 	border: 0px solid ;
+}
+
+.col-md-5{
+	margin-top:20px; ;
 }
 
 

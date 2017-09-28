@@ -39,8 +39,9 @@
 	
 		
 		
-		<div class="col-md-3 ">
-			<h4 class="text-info">Serviços</h4>
+		<div class="col-md-5 ">
+			<h1 class="text-info">Systema de loja vendas</h1>
+			
 			<ul>
 				@if(isset($menur))
 				@foreach($menur as $men)
@@ -58,13 +59,13 @@
 </div>	
 <div class="container row-fluid">	
 	<div class="col-md-12">
-
+		
 	</div>
 
 	@foreach($Fileupload as $modulo5)
 	<div  class="col-md-3" id="align">
 		<h4 class="text-info">{{$modulo5->nome}}</h4>
-		<img src="{{asset('/img/'.$modulo5->url_image)}}">
+		<img src="{{asset('/img/'.$modulo5->url_image)}}" height="120px" width="120px">
 		<p>{{$modulo5->descricao}}</p>
 	</div>
 	@endforeach

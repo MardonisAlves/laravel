@@ -23,10 +23,12 @@ public function fileupload(Request $Request){
 // pegando o nome da img com FILES
 $filename = $_FILES['url_image']['name'];						 
 $newfile = new Produto;
+// movendo para o diretorio
 $newfile->nome= $Request->file('url_image')->move(public_path().'/img',$filename);
 $newfile->precocompra=$Request->precocompra;
 $newfile->nome=$Request->nome;
 $newfile->taxajuros=$Request->taxajuros;
+// armazena o nome original no DB
 $newfile->url_image=$filename;
 $newfile->descricao=$Request->descricao;
 $newfile->quantidade=$Request->quantidade;
