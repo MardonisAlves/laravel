@@ -5,12 +5,11 @@ Route::get( 'home', 'HomeController@index');
 Route::get( 'modulo/updateUploads', 'HomeController@updateUploads');
 Route::get( 'auth/register', 'HomeController@postResgister');
 Route::get( 'Formproduto', 'FileController@Formproduto');
-
+Route::post('cadproduto','FileController@fileupload');
 
 // Rotas do Front-end
 Route::get( '/',    'WelcomeController@index');
-
-Route::get('Filedelete/{id}',['as' =>'Filedelete','uses' => 'FileController@Delete']);
+Route::get( '/',    'WelcomeController@getupload');
 
 
 

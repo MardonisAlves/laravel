@@ -3,7 +3,7 @@
 <div class="container row-fluid">
    <h1>Novo Produto</h1>
 
-                {!! Form::open(['url' => 'cadproduto']) !!}
+                {!! Form::open(['url' => 'cadproduto' , 'enctype'=>'multipart/form-data']) !!}
                
                 <div class="form-group">
                 {!! Form::label('Nome','Nome produto:') !!}

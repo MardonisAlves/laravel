@@ -60,43 +60,18 @@
 	<div class="col-md-12">
 
 	</div>
-	@if(isset($Filemodulo5))
-	@foreach($Filemodulo5 as $modulo5)
+
+	@foreach($Fileupload as $modulo5)
 	<div  class="col-md-3" id="align">
-		<h4 class="text-info">{{$modulo5->title}}</h4>
-		<img src="{{asset('/img/'.$modulo5->filename)}}">
+		<h4 class="text-info">{{$modulo5->nome}}</h4>
+		<img src="{{asset('/img/'.$modulo5->url_image)}}">
 		<p>{{$modulo5->descricao}}</p>
 	</div>
 	@endforeach
-	@endif
-	@if(isset($Filemodulo6))
-	@foreach($Filemodulo6 as $modulo6)
-	<div  class="col-md-3" id="align">
-		<h4 class="text-info">{{$modulo6->title}}</h4>
-		<img src="{{asset('/img/'.$modulo6->filename)}}">
-		<p>{{$modulo6->descricao}}</p>
-	</div>
-	@endforeach
-	@endif
+	
+	
 
-	@if(isset($Filemodulo7))
-	@foreach($Filemodulo7 as $modulo7)
-	<div  class="col-md-3" id="align">
-		<h4 class="text-info">{{$modulo7->title}}</h4>
-		<img src="{{asset('/img/'.$modulo7->filename)}}">
-		<p>{{$modulo7->descricao}}</p>
-	</div>
-	@endforeach
-	@endif
-	@if(isset($Filemodulo8))
-	@foreach($Filemodulo8 as $modulo8)
-	<div  class="col-md-3" id="align">
-		<h4 class="text-info">{{$modulo8->title}}</h4>
-		<img src="{{asset('/img/'.$modulo8->filename)}}">
-		<p>{{$modulo8->descricao}}</p>
-	</div>
-	@endforeach
-	@endif
+	
 </div>
 
 @stop

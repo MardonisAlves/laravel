@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Fileupload;
 use Illuminate\Http\Request;
+use App\Produto;
 use DB;
 use Storage;
 
@@ -18,19 +19,21 @@ class FileController extends Controller {
 		return view('Formproduto');
 	}
 
-public function postbanner(Request $Request){
+public function fileupload(Request $Request){
 // pegando o nome da img com FILES
-$filename = $_FILES['imagem']['name'];						 
-$newfile = new Fileupload;
-$newfile->imagem= $Request->file('imagem')->move(public_path().'/img',$filename);
-$newfile->title=$Request->title;
-$newfile->filename=$filename;
-$newfile->ativo=$Request->ativo;
-$newfile->categoria=$Request->categoria;
+$filename = $_FILES['url_image']['name'];						 
+$newfile = new Produto;
+$newfile->nome= $Request->file('url_image')->move(public_path().'/img',$filename);
+$newfile->precocompra=$Request->precocompra;
+$newfile->nome=$Request->nome;
+$newfile->taxajuros=$Request->taxajuros;
+$newfile->url_image=$filename;
 $newfile->descricao=$Request->descricao;
+$newfile->quantidade=$Request->quantidade;
+$newfile->cor=$Request->cor;
 $newfile->save();
 // retornando query-eloquent do laravel e passando os arrays na view
-			$Fileupload = Fileupload::all();
+			$Fileupload = produto::all();
 								 return view('home',
 								 	['Fileupload' => $Fileupload]);
 								 

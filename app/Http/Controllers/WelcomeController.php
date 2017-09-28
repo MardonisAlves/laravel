@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\email;
+use App\Produto;
 use App\Fileupload;
 use App\Filemodulo;
 use Mail;
@@ -27,6 +28,14 @@ class WelcomeController extends Controller {
 		
 	return view('contato/cadastro');
 
+}
+
+public function getupload(Request $request){
+
+	$Fileupload = produto::all();
+
+			 return view('welcome',
+					 	['Fileupload' => $Fileupload]);
 }	
 
 
