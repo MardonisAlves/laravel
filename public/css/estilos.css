@@ -1,0 +1,107 @@
+@import url('bootstrap.min.css');
+body{
+	background-image:url('../img/bac.jpg');
+	background-attachment: fixed;
+	background-position: center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color:;
+}
+
+
+.pagina{
+	background:white;
+	box-shadow: 1px 5px 8px gray;
+	margin-top: -100px;
+	margin: auto;
+	border: 0px solid black;
+}
+#textarea{
+	border: 1px solid #ccc;
+}
+.text-info{
+	color:gray;
+}
+.cor{
+	margin-top: 15px;
+	color:#000;
+	background-color: #FFFFFF;
+}
+.navbar-brand img{
+	margin-top: -15px;
+}
+ul li img{
+	margin-top: -10px;
+}
+ul li a{
+	color: gray;
+}
+.col-md-12 h3{
+text-align: center;
+}
+#call img{
+	text-align: center;
+	width: 220px;
+}
+#call p{
+	text-align: center;
+	border: transparent;
+	
+}
+#call h5{
+	text-align: center;
+	
+}
+#myCarousel{
+	margin-top: 80px;
+}
+
+#align{
+	text-align:center;
+	margin-top: 30px;
+	border: 0px solid gray;
+}
+.col-md-4{
+	border-top: transparent;
+	border-radius: 5px;
+	margin-top:0px;
+}
+.col-md-12{
+	border: 0px solid ;
+}
+
+
+.col-md-8{
+	border-radius: 10px;
+	margin-top: 30px;
+}
+.col-md-9{
+	border-radius: 10px;
+	margin-top: 40px;
+}
+.col-md-3 p{
+	text-align: justify;
+}
+.col-md-3  img{
+	align: center;
+}
+.col-md-7{
+	margin-top: 20px;
+	border-right: 0px solid gray;
+}
+.col-md-6 img{
+	width: auto;
+}
+.col-md-6 p{
+	text-align: justify;
+}
+
+.footer{
+	background:black;
+	margin-bottom: 10px;
+	color: white;
+	
+}
+
