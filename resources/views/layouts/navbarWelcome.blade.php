@@ -65,23 +65,7 @@
 @yield('content')
 <div class="row-fluid">
   <div class="col-md-12 footer">
-    <div class="col-md-4">
-        <h3>Sigam-me</h3>
-
-
- 
-    </div>
-    <div class="col-md-4 footer">
-       <h3>Nosso Contato</h3>
-      <p class="text-center">
-        E-mail:mardonis Alves</br>
-        Telefone:989578193/33451756
-      </p>
-    </div>
-     <div class="col-md-4 footer">
-       <h3>Parceiros</h3>
-      <p class="text-center">Texto a direita</p>
-    </div>
+   <h5>Todos os direitos reservados</h5>
 </div>
 </div>
 </div>

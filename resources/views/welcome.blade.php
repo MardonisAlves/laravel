@@ -39,8 +39,8 @@
 	
 		
 		
-		<div class="col-md-5 ">
-			<h1 class="text-info">Systema de loja vendas</h1>
+		<div class="col-md-8 ">
+			<h3 class="text-info">Systema de loja vendas</h3>
 			
 			<ul>
 				@if(isset($menur))
