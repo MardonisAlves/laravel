@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder {
 		$user = new App\User();
 		$user->name="MardonisAlves";
 		$user->email = "mardonisgp@gmail.com";
-		$user->password = Hash::make('#qwe123qwe@');
+		$user->password = Hash::make('12345');
 		$user->remember_token=true;
 		$user->master=1;
 		$user->save();

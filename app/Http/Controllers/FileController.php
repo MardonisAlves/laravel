@@ -27,6 +27,8 @@ $newfile = new Produto;
 $newfile->nome= $Request->file('url_image')->move(public_path().'/img',$filename);
 $newfile->precocompra=$Request->precocompra;
 $newfile->nome=$Request->nome;
+$newfile->categoria=$Request->categoria;
+
 $newfile->taxajuros=$Request->taxajuros;
 // armazena o nome original no DB
 $newfile->url_image=$filename;
@@ -36,6 +38,7 @@ $newfile->cor=$Request->cor;
 $newfile->save();
 // retornando query-eloquent do laravel e passando os arrays na view
 			$Fileupload = produto::all();
+			
 								 return view('home',
 								 	['Fileupload' => $Fileupload]);
 								 

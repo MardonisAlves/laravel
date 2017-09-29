@@ -63,10 +63,13 @@
 	</div>
 
 	@foreach($Fileupload as $modulo5)
+
 	<div  class="col-md-3" id="align">
 		<h4 class="text-info">{{$modulo5->nome}}</h4>
 		<img src="{{asset('/img/'.$modulo5->url_image)}}" height="120px" width="120px">
-		<p>{{$modulo5->descricao}}</p>
+		<p>Valor/avista{{ $modulo5->precocompra / 100 *  $modulo5->taxajuros +  $modulo5->precocompra }}R$<a href="#">Detalhes{{$modulo5->categoria}}</a>
+		</p>
+
 	</div>
 	@endforeach
 	
