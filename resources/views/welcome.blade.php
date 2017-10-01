@@ -66,10 +66,9 @@
 
 	<div  class="col-md-3" id="align">
 		<h4 class="text-info">{{$modulo5->nome}}</h4>
+		<h5>Valor{{ $modulo5->precocompra / 100 *  $modulo5->taxajuros +  $modulo5->precocompra }}R$Avista</h5>
 		<img src="{{asset('/img/'.$modulo5->url_image)}}" height="120px" width="120px">
-		<p>Valor/avista{{ $modulo5->precocompra / 100 *  $modulo5->taxajuros +  $modulo5->precocompra }}R$<a href="#">Detalhes{{$modulo5->categoria}}</a>
-		</p>
-
+		
 	</div>
 	@endforeach
 	

@@ -39,8 +39,8 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cadastros<span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
 								<li><a href="{{ url('Formproduto') }}">Novo Produto</a></li>
-								<li><a href="{{ url('auth/register') }}">Users</a></li>
-								<li><a href="{{ url('modulo/menur') }}">Novo Menur</a></li>
+								<li><a href="{{ url('vendas') }}">Nova Venda</a></li>
+								<li><a href="{{ url('cad_cliente') }}">Novo Cliente</a></li>
 							</ul>
 					</li>
 					<li><a href="{{ url('responderEmail') }}">Email</a></li>

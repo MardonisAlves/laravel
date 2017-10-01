@@ -44,6 +44,10 @@ $newfile->save();
 								 
 	}
 
+	public function vendas(){
+		echo "Vamos vender";
+	}
+
 public function getupdate($id){
 
 							$Fileupload = Fileupload::find($id);

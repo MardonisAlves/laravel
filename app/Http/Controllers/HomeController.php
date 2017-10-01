@@ -23,6 +23,10 @@ class HomeController extends Controller {
 	return view('home');
 	}
 	
+	public function cad_cliente(){
+		echo "Olá vamos cadatrar cliente";
+	}
+
 
 	public function postResgister()	{
 		return view('auth/register');
@@ -30,6 +34,7 @@ class HomeController extends Controller {
 	public function contato(){
 		return view('contato/contato');
 	}
+
 
 	
 
