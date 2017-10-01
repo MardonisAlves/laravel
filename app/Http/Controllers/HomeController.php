@@ -24,8 +24,10 @@ class HomeController extends Controller {
 	}
 	
 	public function cad_cliente(){
-		echo "Olá vamos cadatrar cliente";
+	return view('Formcliente');
 	}
+
+	
 
 
 	public function postResgister()	{

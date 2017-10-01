@@ -1,68 +1,154 @@
 @extends('layouts.navbarWelcome')
 @section('content')
-<div  class="row-fluid">
-<div class="col-md-12 cor">
-		<div  class="col-md-3">
-			@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
-					
-				<h4 class="text-info">Administrador</h4>
-				<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-						<div class="form-group">
-							<label class="col-md-4"></label>
-							<input type="email" class="form-control" placeholder="Seu E-mail" name="email" required="required" value="{{ old('email') }}">
-							
-						</div>
-
-						<div class="form-group">
-							<label class="col-md-4"></label>
-								<input type="password" placeholder="Password"required="required" class="form-control" name="password">
-						</div>
-
-						<div class="form-group">
-							
-								<button type="submit" class="btn-primary">Login</button>
-							
-						</div>
-					</form>
-		</div>
-	
-		
-		
-		<div class="col-md-8 ">
-			<h3 class="text-info">Systema de loja vendas</h3>
-			
-			<ul>
-				@if(isset($menur))
-				@foreach($menur as $men)
-					<li><a href="{{route('servico')}}">{{$men->name}}</a></li>
-				@endforeach
-				@endif
-				
-			</ul>
-		
-			
-		</div>
-
-		
-</div>
-</div>	
-<div class="container row-fluid">	
-	<div class="col-md-12">
-		
-	</div>
-
-	@foreach($Fileupload as $modulo5)
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>Content</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://www.jquery2dotnet.com">Articles</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="http://www.jquery2dotnet.com">News</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-file text-info"></span><a href="http://www.jquery2dotnet.com">Newsletters</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-comment text-success"></span><a href="http://www.jquery2dotnet.com">Comments</a>
+                                        <span class="badge">42</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
+                            </span>Modules</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Orders</a> <span class="label label-success">$ 320</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Invoices</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Shipments</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Tex</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-user">
+                            </span>Account</a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <a href="Auth/login">Login</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Notifications</a> <span class="label label-info">5</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Import/Export</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-trash text-danger"></span><a href="http://www.jquery2dotnet.com" class="text-danger">
+                                            Delete Account</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
+                            </span>Reports</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-usd"></span><a href="http://www.jquery2dotnet.com">Sales</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-user"></span><a href="http://www.jquery2dotnet.com">Customers</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-tasks"></span><a href="http://www.jquery2dotnet.com">Products</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="glyphicon glyphicon-shopping-cart"></span><a href="http://www.jquery2dotnet.com">Shopping Cart</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <div class="col-sm-9 col-md-9">
+     <div class="well">
+ 
+    @foreach($Fileupload as $modulo5)
 
 	<div  class="col-md-3" id="align">
 		<h4 class="text-info">{{$modulo5->nome}}</h4>
@@ -72,9 +158,8 @@
 	</div>
 	@endforeach
 	
-	
-
-	
+            </div>
+        </div>
+    </div>
 </div>
-
 @stop

@@ -3,7 +3,7 @@
 <div class="container row-fluid">
     <div class="col-sm-9 col-md-9">
             <div class="well">
-                <h1>Novo Produto</h1>
+                <h1>Cadastro de Clientes</h1>
 
                 {!! Form::open(['url' => 'cadproduto' , 'enctype'=>'multipart/form-data']) !!}
                
@@ -39,15 +39,6 @@
                 <div class="form-group">
                 {!! Form::label('Cor','Cor/Produto:') !!}
                 {!! Form::text('cor',null,['class' => 'form-control ','required' => 'Campo obrigatoria']) !!}
-                </div>
-
-                <div class="form-group" id="textarea">
-                        {!! Form::textarea('descricao',null,['class' => 'col-md-12' , 'id'=> 'textarea','required' => 'Campo obrigatoria'])!!}
-                </div>
-
-                <div class="form-group" style="margin-top:35px;">
-                        {!! Form::file('url_image',['class' => 'form-control btn btn-primary','required' => 'Campo obrigatoria'])!!}
-                   
                 </div>
                 <div class="form-group">
                         {!!  Form::submit('Cadastrar',['class' => 'btn btn-primary']) !!}

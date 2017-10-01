@@ -30,6 +30,10 @@ class WelcomeController extends Controller {
 
 }
 
+public function login(){
+		return view('auth/login');
+	}
+
 public function getupload(Request $request){
 
 	$Fileupload = produto::all();
