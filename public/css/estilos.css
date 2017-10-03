@@ -16,13 +16,6 @@ body{
 .panel-body table tr td { padding-left: 15px }
 .panel-body .table {margin-bottom: 0px; }
 
-
-.pagina{
-	background:white;
-	box-shadow: 1px 5px 8px gray;
-	margin-top: 60px;
-	border: 0px solid black;
-}
 .well{
 	margin-top: -40px;
 }
