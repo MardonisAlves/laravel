@@ -7,6 +7,8 @@ use App\Filemodulo;
 use DB;
 use Mail;
 use Storage;
+use App\clientes;
+use App\Http\Requests;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller {
@@ -24,6 +26,7 @@ class HomeController extends Controller {
 	}
 	
 	public function cad_cliente(){
+
 	return view('Formcliente');
 	}
 
@@ -33,10 +36,20 @@ class HomeController extends Controller {
 	public function postResgister()	{
 		return view('auth/register');
 	}
+
 	public function contato(){
+
 		return view('contato/contato');
 	}
+public function isertClientes(Request $Request){
 
+
+	$Clientes =  $Request->all();
+	clientes::create($Clientes);
+
+
+	return view('Formcliente');
+}
 
 	
 

@@ -8,13 +8,13 @@ Route::get( 'Formproduto', 'FileController@Formproduto');
 Route::post('cadproduto','FileController@fileupload');
 Route::get('vendas','FileController@vendas');
 Route::get('cad_cliente','HomeController@cad_cliente');
-Route::get('Auth/login','WelcomeController@login');
+Route::post('isertClientes','HomeController@isertClientes');
 
 
 // Rotas do Front-end
 Route::get( '/',    'WelcomeController@index');
 Route::get( '/',    'WelcomeController@getupload');
-
+Route::get('Auth/login','WelcomeController@login');
 
 
 

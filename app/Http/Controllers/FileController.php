@@ -16,6 +16,7 @@ class FileController extends Controller {
 	}
 
 	public function Formproduto(){
+		
 		return view('Formproduto');
 	}
 
