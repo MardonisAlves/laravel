@@ -5,47 +5,43 @@
             <div class="well col-md-12">
                 <h3>Nova Venda</h3>
 
-                {!! Form::open(['url' => 'isertClientes' , 'method' => 'post']) !!}
-               
-               <div class="form-group col-md-6">
-                {!! Form::label('Nome','categoria de produtos:') !!}
-                 @foreach($clientes as $nome)
-                  @endforeach
-                {!! Form::select('categoria',
-                
-                ['' => 'Nome do Cliente',
-                $nome->nome => $nome->nome],
-               
-                null, ['placeholder' => 'Pick a size...','class' => 'form-control','required' =>  'obr'])!!}
-              
-                </div>
-
-                <div class="form-group col-md-6">
-                {!! Form::label('Rua','Rua:') !!}
-                {!! Form::text('rua',null,['class' => 'form-control ','required' => 'Campo obrigatoria']) !!}
-                </div>
-
-                <div class="form-group col-md-2">
-                {!! Form::label('Numero','Numero:') !!}
-                {!! Form::text('numero',null,['class' => 'form-control ','required' => 'Campo obrigatoria']) !!}
-                </div>
-
-                <div class="form-group col-md-4">
-                {!! Form::label('Telefone','Telefone:') !!}
-                {!! Form::text('telefone',null,['class' => 'form-control ','required' => 'Campo obrigatoria']) !!}
-                </div>
-
-                <div class="form-group col-md-6">
-                {!! Form::label('Cidade','Cidade:') !!}
-                {!! Form::text('cidade',null,['class' => 'form-control ','required' => 'Campo obrigatoria']) !!}
-                </div>
+                <form action="" method="post">
+               <div class="form-group col-lg-12">
+                    <label for="nome">Nome Cliente</label>
+                        <select name="nome_cliente" id="nome" class="form-control">
+                                <option value="">Nome Cliente</option>
+                        @foreach($clientes as $nome)
+                                <option value={{ $nome->nome }} > {{ $nome->nome }}</option>
+                        @endforeach
+                        </select>
+               </div>
 
                  <div class="form-group col-md-6">
-                {!! Form::label('Estado','Estado:') !!}
-                {!! Form::text('estado',null,['class' => 'form-control ','required' => 'Campo obrigatoria']) !!}
+                    <label for="nomeproduto">Nome produto</label>
+                    <input type="text" class="form-control" id="nomeproduto">                       
                 </div>
-                <div class="form-group col-md-10">
-                        {!!  Form::submit('Cadastrar',['class' => 'btn btn-primary']) !!}
+
+                <div class="form-group col-md-0">
+                <input type="hidden" class="form-control" value="0"> 
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="preco">Preço</label>
+                    <input type="text" class="form-control" name="preco_total">    
+                </div>
+
+                <div class="form-group col-md-6">
+                <label for="desconto">Desconto</label>
+                <input type="text" class="form-control" name="desconto"> 
+                </div>
+
+                <div class="form-group col-md-6">
+                <label for="data">Data Compra</label>
+                <input type="text" class="form-control" name="data_compra"> 
+                </div>
+                <div class="form-group col-md-4">
+                <label for=""></label>
+                <input type="submit" value="Comfirmar" class="form-control btn btn-primary">
                 </div>
             </div>
             {!! Form::close()!!}
