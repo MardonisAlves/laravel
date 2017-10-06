@@ -8,6 +8,7 @@ use DB;
 use Mail;
 use Storage;
 use App\clientes;
+use App\vendas;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -31,10 +32,20 @@ class HomeController extends Controller {
 	}
 
 	public function vendas(){
-
+		// recuperando lista de clintes
 		$clientes = DB::table('clientes')->get();
+		// vender produtos
 
 		return view('Formvenda',['clientes' =>  $clientes]);
+	}
+
+	public function insertvendas(Request $Request){
+		echo $Request->nome_cliente;
+
+		/*$vendas = $Request->all();
+		vendas::create($vendas);*/
+
+
 	}
 
 

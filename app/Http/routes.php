@@ -5,8 +5,11 @@ Route::get( 'home', 'HomeController@index');
 Route::get( 'modulo/updateUploads', 'HomeController@updateUploads');
 Route::get( 'auth/register', 'HomeController@postResgister');
 Route::get( 'Formproduto', 'FileController@Formproduto');
+
 Route::post('cadproduto','FileController@fileupload');
+
 Route::get('vendas','HomeController@vendas');
+Route::post('insertvendas','HomeController@insertvendas');
 Route::get('cad_cliente','HomeController@cad_cliente');
 Route::post('isertClientes','HomeController@isertClientes');
 

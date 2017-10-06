@@ -16,11 +16,12 @@ class CreateVendasTable extends Migration
         $table->increments('id');
         $table->timestamps();
         $table->string('nome_produto');
-        $table->foreign('nome_cliente')->reference('nome')->on('clientes');
+        $table->string('nome_cliente');
+        $table->foreign('nome_cliente')->references('nome')->on('clientes')->onUpdate('cascade');
         $table->boolean('status');
         $table->string('total_venda');
         $table->string('desconto');
-        $table->date('data_compra');
+        $table->string('data_compra');
       }); 
     }
 
