@@ -6,7 +6,7 @@ Route::get( 'modulo/updateUploads', 'HomeController@updateUploads');
 Route::get( 'auth/register', 'HomeController@postResgister');
 Route::get( 'Formproduto', 'FileController@Formproduto');
 Route::post('cadproduto','FileController@fileupload');
-Route::get('vendas','FileController@vendas');
+Route::get('vendas','HomeController@vendas');
 Route::get('cad_cliente','HomeController@cad_cliente');
 Route::post('isertClientes','HomeController@isertClientes');
 

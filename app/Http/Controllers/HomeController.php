@@ -30,7 +30,12 @@ class HomeController extends Controller {
 	return view('Formcliente');
 	}
 
-	
+	public function vendas(){
+
+		$clientes = DB::table('clientes')->get();
+
+		return view('Formvenda',['clientes' =>  $clientes]);
+	}
 
 
 	public function postResgister()	{

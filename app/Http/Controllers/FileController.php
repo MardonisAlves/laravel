@@ -45,9 +45,6 @@ $newfile->save();
 								 
 	}
 
-	public function vendas(){
-		echo "Vamos vender";
-	}
 
 public function getupdate($id){
 
