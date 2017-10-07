@@ -12,7 +12,7 @@
                         <select name="nome_cliente" id="nome_cliente" class="form-control">
                                 <option value="">Nome Cliente</option>
                         @foreach($clientes as $nome)
-                                <option value= {!! $nome->nome !!}> {{ $nome->nome }}</option>
+                                <option value= "{{ $nome->nome }}"> {{ $nome->nome }}</option>
                         @endforeach
                         </select>
                </div>

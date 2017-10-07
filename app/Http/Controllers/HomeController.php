@@ -22,8 +22,8 @@ class HomeController extends Controller {
 	 }
 	 
 	public function index()	{
-
-	return view('home');
+	$vendas = DB::table('vendas')->offset(10)->limit(5)->get();
+	return view('home',['vendas' => $vendas]);
 	}
 	
 	public function cad_cliente(){
@@ -40,11 +40,11 @@ class HomeController extends Controller {
 	}
 
 	public function insertvendas(Request $Request){
-		echo $Request->nome_cliente;
+	
+		$vendas = $Request->all();
+		vendas::create($vendas);
 
-		/*$vendas = $Request->all();
-		vendas::create($vendas);*/
-
+		return redirect()->route('vendas');// redireciona para uma rota sem precisar passar novamente as variaveis
 
 	}
 
