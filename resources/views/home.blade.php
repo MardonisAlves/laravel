@@ -10,9 +10,9 @@
 					        <th>Nome Produto</th>
 					        <th>Nome Cliente</th>
 					        <th>Status</th>
-					        <th>Quantidade</th>
-					        <th>Total Apagar</th>
-					        <th>Data Compra</th>
+					        <th>Total</th>
+					        <th>Tipo/Pgato</th>
+					        <th>N/Parcelas</th>
 					      </tr>
 					    </thead>
 					    <tbody>
@@ -21,11 +21,21 @@
 					        <td>{{ $nome->nome_produto}}</td>
 					        <td>{{ $nome->nome_cliente}}</td>
 					        <td>
-					        {{ $nome->status }}
+					        @if($nome->status == 1)
+					        Quitado
+					        @else
+					       	Pendente de Quitação
+					       	@endif
 					        </td>
 					        <td>{{ $nome->total_venda }}R$</td>
-					        <td>New York</td>
-					        <td>USA</td>
+					        <td>{{ $nome->tipo_pagto}}</td>
+					        <td>
+					        	@if($nome->parcelas == 1)
+					        	Esta compra foi avista
+					        	@else
+					        	{{ $nome->parcelas}}
+					        	@endif
+					        </td>
 					      </tr>
 					      @endforeach
 					    </tbody>
