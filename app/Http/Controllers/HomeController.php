@@ -9,6 +9,7 @@ use Mail;
 use Storage;
 use App\clientes;
 use App\vendas;
+use App\produtos;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -22,8 +23,9 @@ class HomeController extends Controller {
 	 }
 	 
 	public function index()	{
-	$vendas = DB::table('vendas')->offset(10)->limit(5)->get();
-	return view('home',['vendas' => $vendas]);
+
+				$vendas = DB::table('vendas')->get();
+				return view('home',['vendas' => $vendas]);
 	}
 	
 	public function cad_cliente(){
@@ -34,16 +36,30 @@ class HomeController extends Controller {
 	public function vendas(){
 		// recuperando lista de clintes
 		$clientes = DB::table('clientes')->get();
+		$produtos = DB::table('produtos')->get();
 		// vender produtos
 
-		return view('Formvenda',['clientes' =>  $clientes]);
+		return view('Formvenda',['clientes' =>  $clientes,'produtos' => $produtos]);
 	}
 
 	public function insertvendas(Request $Request){
-	
-		$vendas = $Request->all();
-		vendas::create($vendas);
+		
+		$vendas = new vendas();
+		$vendas->nome_produto=$Request->nome_produto;
+		$vendas->nome_cliente=$Request->nome_cliente;
+		$vendas->nome_produto=$Request->nome_produto;
+		$vendas->status=$Request->status;
+		$vendas->quantidade=$Request->quantidade;
+		$vendas->tipo_pagto=$Request->tipo_pagto;
+		$vendas->parcelas=$Request->parcelas;
 
+		$desconto =  $Request->total_venda * $Request->quantidade / 100 * $Request->desconto;
+		$total =  $Request->total_venda * $Request->quantidade - $desconto;
+
+		$vendas->total_venda=$total;
+		$vendas->desconto=$Request->desconto;
+		$vendas->data_compra = $Request->data_compra;
+		$vendas->save();
 		return redirect()->route('vendas');// redireciona para uma rota sem precisar passar novamente as variaveis
 
 	}

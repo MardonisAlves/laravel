@@ -17,14 +17,24 @@
                         </select>
                </div>
 
-                 <div class="form-group col-md-6">
-                    <label for="nome_produto">Nome produto</label>
-                    <input type="text" class="form-control" name="nome_produto">                       
-                </div>
+                  <div class="form-group col-lg-6">
+                    <label for="nome_cliente">Nome Produto</label>
+                        <select name="nome_produto" id="nome_cliente" class="form-control">
+                                <option value="">Nome Produto ....</option>
+                        @foreach($produtos as $nome)
+                                <option value= "{{ $nome->nome }}"> {{ $nome->nome }}</option>
+                        @endforeach
+                        </select>
+               </div>
 
-                <div class="form-group col-md-0">
-                <input type="hidden" class="form-control" value="0" name="status"> 
-                </div>
+                <div class="form-group col-lg-6">
+                    <label for="nome_cliente">Estado de Quitação da Compra</label>
+                        <select name="status" id="tipo_pagto" class="form-control">
+                                <option value="">Status da compra</option>
+                                <option value= "0">Pendente</option>
+                                <option value= "1">Quitado</option>
+                       </select>
+               </div>
 
                 <div class="form-group col-md-6">
                     <label for="total_venda">Preço</label>
@@ -40,7 +50,37 @@
                 <label for="data">Data Compra</label>
                 <input type="text" class="form-control" name="data_compra"> 
                 </div>
+                 <div class="form-group col-lg-4">
+                    <label for="nome_cliente">Tipo de Pagamento</label>
+                        <select name="tipo_pagto" id="tipo_pagto" class="form-control">
+                                <option value="">Tipo de Pagamento</option>
+                                <option value= "cartao de Credito">Cartão de Credito</option>
+                                <option value= "cartao de Debito">Cartão de Debito</option>
+                                <option value= "Boleto">Boleto</option>
+                                <option value= "Dinheiro">Dinheiro</option>
+                                <option value= "Crediário">Crediário</option>
+                       </select>
+               </div>
+
                 <div class="form-group col-md-4">
+                    <label for="quantidade">Quanridade</label>
+                    <input type="text" class="form-control" name="quantidade">    
+                </div>
+
+                <div class="form-group col-lg-4">
+                    <label for="parcelas">Numero de Parcelas</label>
+                        <select name="parcelas" id="tipo_pagto" class="form-control">
+                                <option value="">Numero de Parcelas</option>
+                                <option value= "1">1x parcela Avista</option>
+                                <option value= "2">2x </option>
+                                <option value= "3">3x </option>
+                                <option value= "4">4x </option>
+                                <option value= "5">5x </option>
+                                <option value= "6">6x </option>
+                       </select>
+               </div>
+
+                <div class="form-group col-md-6">
                 <label for=""></label>
                 <input type="submit" value="Comfirmar" class="form-control btn btn-primary">
                 </div>

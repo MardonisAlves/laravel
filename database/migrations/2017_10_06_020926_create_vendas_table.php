@@ -19,6 +19,9 @@ class CreateVendasTable extends Migration
         $table->string('nome_cliente');
         $table->foreign('nome_cliente')->references('nome')->on('clientes')->onUpdate('cascade');
         $table->boolean('status');
+        $table->string('quantidade');
+        $table->string('tipo_pagto')
+        $table->string('parcelas');
         $table->string('total_venda');
         $table->string('desconto');
         $table->string('data_compra');
