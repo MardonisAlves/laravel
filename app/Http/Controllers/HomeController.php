@@ -23,9 +23,13 @@ class HomeController extends Controller {
 	 }
 	 
 	public function index()	{
-
-				$vendas = DB::table('vendas')->get();
-				return view('home',['vendas' => $vendas]);
+		$search = \Request::get('search'); //<-- we use global request to get the param of URI
+ 
+    $offices = vendas::where('nome_cliente','like','%'.$search.'%')
+        ->orderBy('nome_cliente')
+        ->paginate(20);
+ 
+    return view('home',compact('offices'));
 	}
 	
 	public function cad_cliente(){
@@ -83,10 +87,5 @@ public function isertClientes(Request $Request){
 	return view('Formcliente');
 }
 
-	
 
-
-
-	
-	
 }

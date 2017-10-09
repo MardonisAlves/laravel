@@ -1,45 +1,44 @@
 @extends('layouts.navbarHome')
 
 @section('content')
+<div class="col-sm-9 col-md-9">
 
-        <div class="col-sm-9 col-md-9">
-                 
-					  <table class="table">
-					    <thead>
-					      <tr>
-					        <th>Nome Produto</th>
-					        <th>Nome Cliente</th>
-					        <th>Status</th>
-					        <th>Total</th>
-					        <th>Tipo/Pgato</th>
-					        <th>N/Parcelas</th>
-					      </tr>
-					    </thead>
-					    <tbody>
-					    @foreach($vendas as $nome)
-					      <tr>
-					        <td>{{ $nome->nome_produto}}</td>
-					        <td>{{ $nome->nome_cliente}}</td>
-					        <td>
-					        @if($nome->status == 1)
-					        Quitado
-					        @else
-					       	Pendente de Quitação
-					       	@endif
-					        </td>
-					        <td>{{ $nome->total_venda }}R$</td>
-					        <td>{{ $nome->tipo_pagto}}</td>
-					        <td>
-					        	@if($nome->parcelas == 1)
-					        	Esta compra foi avista
-					        	@else
-					        	{{ $nome->parcelas}}
-					        	@endif
-					        </td>
-					      </tr>
-					      @endforeach
-					    </tbody>
-					  </table>
+{!! Form::open(['method'=>'GET','url'=>'home','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
+ 
+<div class="input-group custom-search-form">
+    <input type="text" class="form-control" name="search" placeholder="Search...">
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit">Procurar
+            <i class="fa fa-search"><span class="hiddenGrammarError" pre="" data-mce-bogus="1">
+        </button>
+    </span>
+</div>
+{!! Form::close() !!}
+
+
+
+ <div class="panel panel-default">
+ 
+ 
+        <table class="table table-bordered table-hover" >
+            <thead>
+                <th>Nome</th>
+                <th>Produto</th>
+                <th>Situação</th>
+                <th>Quantidade</th>
+            </thead>
+            <tbody>
+                @foreach($offices as $office)
+                <tr>
+                    <td>{{ $office->nome_cliente }}</td>
+                     <td>{{ $office->nome_produto}}</td>
+                      <td>{{ $office->status}}</td>
+                       <td>{{ $office->quantidade }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
         </div>
 
 
