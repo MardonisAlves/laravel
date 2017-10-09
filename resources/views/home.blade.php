@@ -26,14 +26,23 @@
                 <th>Produto</th>
                 <th>Situação</th>
                 <th>Quantidade</th>
+                <th>Parcelas</th>
+                <th>Total a pagar</th>
+                <th>Forma de Pagamento</th>
+                <th>Actions</th>
+
             </thead>
             <tbody>
                 @foreach($offices as $office)
                 <tr>
                     <td>{{ $office->nome_cliente }}</td>
                      <td>{{ $office->nome_produto}}</td>
-                      <td>{{ $office->status}}</td>
+                      <td>{{ $office->data_compra}}       </td>
                        <td>{{ $office->quantidade }}</td>
+                       <td>{{ $office->parcelas }}</td>
+                        <td>{{ $office->total_venda }}</td>
+                        <td>{{ $office->tipo_pagto}}</td>
+                        <td><a href="#">Update</a></td>
                 </tr>
                 @endforeach
             </tbody>

@@ -23,11 +23,12 @@ class HomeController extends Controller {
 	 }
 	 
 	public function index()	{
-		$search = \Request::get('search'); //<-- we use global request to get the param of URI
+
+	$search = \Request::get('search'); //<-- we use global request to get the param of URI
  
     $offices = vendas::where('nome_cliente','like','%'.$search.'%')
         ->orderBy('nome_cliente')
-        ->paginate(20);
+        ->paginate(10);
  
     return view('home',compact('offices'));
 	}
