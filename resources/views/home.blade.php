@@ -17,10 +17,10 @@
 
 
 
- <div class="panel panel-default">
+ <div class="panel panel-default col-md-12">
  
  
-        <table class="table table-bordered table-hover" >
+        <table class="table table-bordered table-hover responsive" >
             <thead>
                 <th>Nome</th>
                 <th>Produto</th>
@@ -43,11 +43,13 @@
                         <td>{{ $office->total_venda }}</td>
                         <td>{{ $office->tipo_pagto}}</td>
                         <td><a href="#">Update</a></td>
+                      
                 </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
+
+		
         </div>
 
 

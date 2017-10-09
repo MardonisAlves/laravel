@@ -12,6 +12,7 @@ use App\vendas;
 use App\produtos;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Database\Query\Builder;
 
 class HomeController extends Controller {
 
@@ -28,7 +29,7 @@ class HomeController extends Controller {
  
     $offices = vendas::where('nome_cliente','like','%'.$search.'%')
         ->orderBy('nome_cliente')
-        ->paginate(10);
+        ->paginate(50);
  
     return view('home',compact('offices'));
 	}
