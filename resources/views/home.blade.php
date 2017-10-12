@@ -36,20 +36,27 @@
                 @foreach($offices as $office)
                 <tr>
                     <td>{{ $office->nome_cliente }}</td>
-                     <td>{{ $office->nome_produto}}</td>
-                      <td>{{ $office->data_compra}}       </td>
-                       <td>{{ $office->quantidade }}</td>
-                       <td>{{ $office->parcelas }}</td>
-                        <td>{{ $office->total_venda }}</td>
-                        <td>{{ $office->tipo_pagto}}</td>
-                        <td><a href="#">Update</a></td>
+                    <td>{{ $office->nome_produto}}</td>
+                    <td>
+                        @if($office->status == 1)
+                        Quitado
+                        @else
+                        Pendente
+                        @endif
+                        
+                    </td>
+                    <td>{{ $office->quantidade }}</td>
+                    <td>Valor de {{$office->parcelas}} X {{ $office->total_venda  / $office->parcelas }}</td>
+                    <td>{{ $office->total_venda }}</td>
+                    <td>{{ $office->tipo_pagto}}</td>
+                    <td><a href="#">Update</a></td>
                       
                 </tr>
                 @endforeach
             </tbody>
         </table>
 
-		
+		{!! $offices->render() !!}
         </div>
 
 

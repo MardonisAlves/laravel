@@ -29,7 +29,7 @@ class HomeController extends Controller {
  
     $offices = vendas::where('nome_cliente','like','%'.$search.'%')
         ->orderBy('nome_cliente')
-        ->paginate(50);
+        ->paginate(2);
  
     return view('home',compact('offices'));
 	}
