@@ -38,10 +38,7 @@ $newfile->quantidade=$Request->quantidade;
 $newfile->cor=$Request->cor;
 $newfile->save();
 // retornando query-eloquent do laravel e passando os arrays na view
-			$Fileupload = produto::all();
-			
-								 return view('home',
-								 	['Fileupload' => $Fileupload]);
+			return redirect()->route('home');
 								 
 	}
 

@@ -16,7 +16,8 @@
                 {!! Form::label('Nome','categoria de produtos:') !!}
                 {!! Form::select('categoria', 
                 ['' => 'Eletrodomestico', 
-                'Moveis' => 'Moveis'], 
+                'Moveis' => 'Moveis', 
+                'Cozinha' => 'Conzinha'],
                 null, ['placeholder' => 'Pick a size...','class' => 'form-control','required' =>  'obr'])!!}
 
                 </div>

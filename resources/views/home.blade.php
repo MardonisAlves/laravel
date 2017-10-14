@@ -2,6 +2,33 @@
 
 @section('content')
 <div class="col-sm-9 col-md-9">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Nome Cliente', 'Quantidade'],
+            @foreach ($produtos as $produto)
+                ['{{$produto->nome}}',{{ $produto->quantidade}}],
+            @endforeach 
+        ]);
+
+        var options = {
+          title: 'Produtos venda',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart_3d" style="width: 400px; height: 200px;"></div>
+  </body>
+
+
 
 {!! Form::open(['method'=>'GET','url'=>'home','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
  
@@ -18,8 +45,7 @@
 
 
  <div class="panel panel-default col-md-12">
- 
- 
+            
         <table class="table table-bordered table-hover responsive" >
             <thead>
                 <th>Nome</th>

@@ -1,7 +1,7 @@
 <?php
 
 // Rotas do back-end 
-Route::get( 'home', 'HomeController@index');
+Route::get( 'home', 'HomeController@index')->name('home');
 Route::get( 'modulo/updateUploads', 'HomeController@updateUploads');
 Route::get( 'auth/register', 'HomeController@postResgister');
 Route::get( 'Formproduto', 'FileController@Formproduto');

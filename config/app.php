@@ -137,6 +137,8 @@ return [
 		'Illuminate\View\ViewServiceProvider',
         'Illuminate\Broadcasting\BroadcastServiceProvider',   
         'Illuminate\Html\HtmlServiceProvider',
+        'Khill\Lavacharts\Laravel\LavachartsServiceProvider',
+        'ConsoleTVs\Charts\ChartsServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -198,12 +200,15 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',	       
       	'Form'      =>'Illuminate\Html\FormFacade',
 	  	'Html'      =>'Illuminate\Html\HtmlFacade',
+	  	'Lava' => 'Khill\Lavacharts\Laravel\LavachartsFacade',
+	  	'Charts' => 'ConsoleTVs\Charts\Facades\Charts',
 
 	   'FPDF'            => 'App\Libraries\FPDF\FPDF',
 	   'Infra_Relatorio' => 'App\Libraries\infra_relatorio',
 	   'hlp_view'        => 'App\Libraries\hlp_view',     
 	   'Infra_Menu'      => 'App\Libraries\Infra\Infra_Menu',
 	   'Gate' => 'Illuminate\Support\Facades\Gate',
+
 
             
 	],

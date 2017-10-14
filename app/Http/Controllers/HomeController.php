@@ -9,10 +9,11 @@ use Mail;
 use Storage;
 use App\clientes;
 use App\vendas;
-use App\produtos;
+use App\Produto;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Database\Query\Builder;
+use Khill\Lavacharts\Lavacharts;
 
 class HomeController extends Controller {
 
@@ -23,15 +24,18 @@ class HomeController extends Controller {
 	
 	 }
 	 
-	public function index()	{
+public function index()	{
 
-	$search = \Request::get('search'); //<-- we use global request to get the param of URI
+$produtos = Produto::all();
+
+
+			$search = \Request::get('search');
+			$offices = vendas::where('nome_cliente','like','%'.$search.'%')
+			->orderBy('nome_cliente')
+			->paginate(2);
  
-    $offices = vendas::where('nome_cliente','like','%'.$search.'%')
-        ->orderBy('nome_cliente')
-        ->paginate(2);
- 
-    return view('home',compact('offices'));
+ 	return view('home',compact('offices','produtos'));
+
 	}
 	
 	public function cad_cliente(){
@@ -66,12 +70,13 @@ class HomeController extends Controller {
 		$vendas->desconto=$Request->desconto;
 		$vendas->data_compra = $Request->data_compra;
 		$vendas->save();
-		return redirect()->route('vendas');// redireciona para uma rota sem precisar passar novamente as variaveis
+		return redirect()->route('home');// redireciona para uma rota sem precisar passar novamente as variaveis
 
 	}
 
 
 	public function postResgister()	{
+
 		return view('auth/register');
 	}
 
