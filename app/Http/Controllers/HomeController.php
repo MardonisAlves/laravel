@@ -29,12 +29,12 @@ public function index()	{
 $produtos = Produto::all();
 
 
-			$search = \Request::get('search');
+			/*$search = \Request::get('search');
 			$offices = vendas::where('nome_cliente','like','%'.$search.'%')
 			->orderBy('nome_cliente')
-			->paginate(2);
+			->paginate(2);*/
  
- 	return view('home',compact('offices','produtos'));
+ 	return view('home',compact('produtos'));
 
 	}
 	
