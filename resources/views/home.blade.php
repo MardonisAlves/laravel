@@ -1,6 +1,7 @@
 @extends('layouts.navbarHome')
 
 @section('content')
+
  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
 
@@ -30,7 +31,7 @@
         piechart.draw(data, piechart_options);
 
         var barchart_options = {title:'produtos',
-                       width:300,
+                       width:350,
                        height:300,
                        legend: 'none'};
         var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
