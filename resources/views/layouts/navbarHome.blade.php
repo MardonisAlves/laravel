@@ -67,9 +67,9 @@
 		</div>
 	</nav>
 
-	<div class="container">
-    <div class="row">
-        <div class="col-sm-3 col-md-3">
+
+    <div class="row-fluid">
+        <div class="col-sm-3 col-md-3" style="margin-top:30px;">
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -213,6 +213,7 @@
         </div>
 
 	@yield('content')
+
 
 </body>
 </html>

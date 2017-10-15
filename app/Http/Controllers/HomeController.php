@@ -27,6 +27,7 @@ class HomeController extends Controller {
 public function index()	{
 
 $produtos = Produto::all();
+$vendas = vendas::all();
 
 
 			/*$search = \Request::get('search');
@@ -34,7 +35,7 @@ $produtos = Produto::all();
 			->orderBy('nome_cliente')
 			->paginate(2);*/
  
- 	return view('home',compact('produtos'));
+ 	return view('home',compact('produtos','vendas'));
 
 	}
 	
