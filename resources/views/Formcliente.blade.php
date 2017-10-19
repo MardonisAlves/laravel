@@ -3,9 +3,14 @@
 <div class="container row-fluid">
     <div class="col-sm-9 col-md-9">
             <div class="well col-md-12">
+            @if(isset($name))
+           <div class="alert alert-danger">
+           {!! $name !!}
+           </div>
+        @endif
                 <h3>Cadastro de Clientes</h3>
 
-                {!! Form::open(['url' => 'isertClientes' , 'method' => 'post']) !!}
+                {!! Form::open(['url' => 'isertClientes']) !!}
                
                 <div class="form-group col-md-12">
                 {!! Form::label('Nome','Nome Cliente:') !!}

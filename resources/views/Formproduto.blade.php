@@ -3,6 +3,11 @@
 <div class="container row-fluid">
     <div class="col-sm-9 col-md-9">
             <div class="well col-md-12">
+        @if(isset($name))
+           <div class="alert alert-danger">
+           {!! $name !!}
+           </div>
+        @endif
 
                 {!! Form::open(['url' => 'cadproduto' , 'enctype'=>'multipart/form-data']) !!}
                

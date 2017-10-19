@@ -21,6 +21,15 @@ class FileController extends Controller {
 	}
 
 public function fileupload(Request $Request){
+	/*--------------
+	Validação de produtos se existe sera notificado 
+	*/
+$produtos = Produto::all();
+foreach($produtos as $produto){
+	if($produto->nome == $Request->nome){
+		return view('Formproduto', ['name' => 'O Produto '. $Request->nome . 'Ja Existe']);
+	}
+}
 // pegando o nome da img com FILES
 $filename = $_FILES['url_image']['name'];						 
 $newfile = new Produto;

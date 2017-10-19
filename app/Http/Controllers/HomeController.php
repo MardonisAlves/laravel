@@ -1,19 +1,13 @@
 <?php namespace App\Http\Controllers;
 
-use App\email;
 use App\Http\Controllers\Controller;
-use App\Fileupload;
-use App\Filemodulo;
 use DB;
-use Mail;
 use Storage;
-use App\clientes;
+use App\Clientes;
 use App\vendas;
 use App\Produto;
-use App\Http\Requests;
+
 use Illuminate\Http\Request;
-use Illuminate\Database\Query\Builder;
-use Khill\Lavacharts\Lavacharts;
 
 class HomeController extends Controller {
 
@@ -86,14 +80,27 @@ $vendas = vendas::all();
 		return view('contato/contato');
 	}
 public function isertClientes(Request $Request){
+	// verifica o request se o cliente ja esta cadastrado
+	$tabclientes = DB::table('clientes')->where('nome', '=', $Request->nome)->get();
 
+	foreach($tabclientes as $cad){
+		if($cad->nome = $Request->nome){
+			return view('Formcliente', ['name' => 'Cliente ja tem cadastro']);
+		}else{
+			$cad = new Clientes();
+			$cad->nome = $Request->nome;
+			$cad->rua = $Request->rua;
+			$cad->numero = $Request->numero;
+			$cad->telefone = $Request->telefone;
+			$cad->cidade = $Request->cidade;
+			$cad->estado = $Request->estado;
+			$cad->save();
+		}
 
-	$Clientes =  $Request->all();
-	clientes::create($Clientes);
-
-
-	return view('Formcliente');
+		
+	}
+		
+	return view('Formcliente', ['name' => 'Cadastrado com Sucesso']);	
+		}
 }
 
-
-}
