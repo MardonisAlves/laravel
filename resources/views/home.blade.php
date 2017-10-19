@@ -49,7 +49,7 @@
 
       var options = {
             width:400,
-            height:280,
+            height:300,
         legend: 'none',
         pieSliceText: 'label',
         title: 'Vendas',
@@ -66,14 +66,14 @@
 </script>
 
     <!--Table and divs that hold the pie charts-->
-    <table class="columns" style="margin-top:-10px;">
+    <table class="columns" style="margin-top:60px;">
       <tr>
-        <td><div id="piechart_div" style="border: 1px solid #ccc"></div></td>
-        <td><div id="barchart_div" style="border: 1px solid #ccc"></div></td>
+        <td><div id="piechart_div" style="border: 1px dotted #ccc"></div></td>
+        <td><div id="barchart_div" style="border: 1px dotted #ccc"></div></td>
         
       </tr>
       <tr>
-        <td><div id="pievendas" style="border: 1px solid #ccc"></div> </td>
+        <td><div id="pievendas" style="border:1px dotted #ccc"></div> </td>
       </tr>
     </table>
     
