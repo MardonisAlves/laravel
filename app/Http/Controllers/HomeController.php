@@ -86,20 +86,19 @@ public function isertClientes(Request $Request){
 	foreach($tabclientes as $cad){
 		if($cad->nome = $Request->nome){
 			return view('Formcliente', ['name' => 'Cliente ja tem cadastro']);
-		}else{
-			$cad = new Clientes();
-			$cad->nome = $Request->nome;
-			$cad->rua = $Request->rua;
-			$cad->numero = $Request->numero;
-			$cad->telefone = $Request->telefone;
-			$cad->cidade = $Request->cidade;
-			$cad->estado = $Request->estado;
-			$cad->save();
 		}
+		
 
 		
 	}
-		
+	$cad = new Clientes();
+	$cad->nome = $Request->nome;
+	$cad->rua = $Request->rua;
+	$cad->numero = $Request->numero;
+	$cad->telefone = $Request->telefone;
+	$cad->cidade = $Request->cidade;
+	$cad->estado = $Request->estado;
+	$cad->save();	
 	return view('Formcliente', ['name' => 'Cadastrado com Sucesso']);	
 		}
 }

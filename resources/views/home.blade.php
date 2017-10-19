@@ -2,7 +2,7 @@
 
 @section('content')
 
- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script type="text/javascript" src="{{('/js/charts.js')}}"></script>
     <script type="text/javascript">
 
       // Load Charts and the corechart and barchart packages.
@@ -17,7 +17,7 @@
 
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Topping');
-        data.addColumn('number', 'Slices');
+        data.addColumn('number', 'Quantidade');
         data.addRows([
          @foreach($produtos as $produto)
             ['{{$produto->nome}}',{{$produto->quantidade}}],
