@@ -88,7 +88,8 @@ function lucrovendas() {
         var data = google.visualization.arrayToDataTable([
           ['Language', 'Speakers (in millions)'],
             @foreach($vendas as $lucrovendas )
-          ['{{$lucrovendas->nome_produto}}', 13],
+          ['{{$lucrovendas->nome_produto}}', 
+          {{$lucrovendas->total_venda}}],
             @endforeach
         ]);
 
