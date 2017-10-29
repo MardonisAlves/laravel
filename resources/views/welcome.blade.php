@@ -3,8 +3,14 @@
 
 
      <div class="col-sm-9 col-md-9">
-     <div class="well">
- 
+    <div class="panel panel-success" style="margin-top:-40px;">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="" href=""><span class="glyphicon glyphicon-file">
+                            </span>Catalogo de Produtos</a>
+                        </h4>
+                    </div>
+    </div>
     @foreach($Fileupload as $modulo5)
 
 	<div  class="col-md-3" id="align">

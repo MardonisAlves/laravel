@@ -6,12 +6,12 @@
     <script type="text/javascript">
 
       // Load Charts and the corechart and barchart packages.
-      google.charts.load('current', {'packages':['corechart']});
-     
-
+        google.charts.load('current', {'packages':['corechart']});
       // Draw the pie chart and bar chart when Charts is loaded.
-      google.charts.setOnLoadCallback(drawChart);
-     google.charts.setOnLoadCallback(pievendas);
+        google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(pievendas);
+        google.charts.setOnLoadCallback(lucro);
+        google.charts.setOnLoadCallback(lucrovendas);
 
       function drawChart() {
 
@@ -25,17 +25,11 @@
         ]);
 
         var piechart_options = {title:'Estoque produtos',
-                       width:650,
+                       width:450,
                        height:300};
+
         var piechart = new google.visualization.PieChart(document.getElementById('piechart_div'));
         piechart.draw(data, piechart_options);
-
-        var barchart_options = {title:'produtos',
-                       width:350,
-                       height:300,
-                       legend: 'none'};
-        var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
-        barchart.draw(data, barchart_options);
       }
 
      function pievendas() {
@@ -48,7 +42,7 @@
         ]);
 
       var options = {
-            width:400,
+            width:300,
             height:300,
         legend: 'none',
         pieSliceText: 'label',
@@ -61,6 +55,60 @@
         chart.draw(data, options);
       }
 
+     function lucro() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Total", { role: "style" } ],
+        @foreach($produtos as $valorproduto)
+
+        ["{{$valorproduto->nome}}", {{$valorproduto->precocompra}} * {{$valorproduto->quantidade}}, "green"],
+
+        @endforeach
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Total Acumuldado em Estoque",
+        width: 500,
+        height: 300,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+
+function lucrovendas() {
+        var data = google.visualization.arrayToDataTable([
+          ['Language', 'Speakers (in millions)'],
+            @foreach($vendas as $lucrovendas )
+          ['{{$lucrovendas->nome_produto}}', 13],
+            @endforeach
+        ]);
+
+        var options = {
+          title: 'relatorio de lucro',
+          legend: 'none',
+          width:400,
+          height:300,
+          pieSliceText: 'label',
+          slices: {  4: {offset: 0.2},
+                    12: {offset: 0.3},
+                    14: {offset: 0.4},
+                    15: {offset: 0.5},
+          },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('lucrovendas'));
+        chart.draw(data, options);
+      }
+
       
 
 </script>
@@ -69,11 +117,12 @@
     <table class="columns" style="margin-top:60px;">
       <tr>
         <td><div id="piechart_div" style="border: 1px dotted #ccc"></div></td>
-        <td><div id="barchart_div" style="border: 1px dotted #ccc"></div></td>
+        <td><div id="columnchart_values" style="border: 1px dotted #ccc"></div></td>
         
       </tr>
       <tr>
         <td><div id="pievendas" style="border:1px dotted #ccc"></div> </td>
+         <td><div id="lucrovendas" style="border:1px dotted #ccc"></div> </td>
       </tr>
     </table>
     

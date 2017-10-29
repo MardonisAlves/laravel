@@ -23,6 +23,9 @@ public function index()	{
 $produtos = Produto::all();
 $vendas = vendas::all();
 
+foreach($produtos as $total){
+	 $total->precocompra * $total->quantidade;
+}
 
 			/*$search = \Request::get('search');
 			$offices = vendas::where('nome_cliente','like','%'.$search.'%')
