@@ -20,16 +20,17 @@
                 <div class="form-group col-md-6">
                 {!! Form::label('Nome','categoria de produtos:') !!}
                 {!! Form::select('categoria', 
-                ['' => 'Eletrodomestico', 
+                ['' => 'Escolha ....', 
                 'Moveis' => 'Moveis', 
-                'Cozinha' => 'Conzinha'],
+                'Cozinha' => 'Conzinha',
+                'Informatica' => 'Informatica'],
                 null, ['placeholder' => 'Pick a size...','class' => 'form-control','required' =>  'obr'])!!}
 
                 </div>
 
                 <div class="form-group col-md-3">
-                {!! Form::label('Quantidade','Quantidade:') !!}
-                {!! Form::text('quantidade',null,['class' => 'form-control ','required' => 'Campo obrigatoria']) !!}
+                {!! Form::label('Unidade','Unidade:') !!}
+                {!! Form::text('unidade',null,['class' => 'form-control ','required' => 'Campo obrigatoria']) !!}
                 </div>
 
                 <div class="form-group col-md-3">

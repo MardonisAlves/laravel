@@ -4,7 +4,7 @@
     <div class="col-sm-9 col-md-9">
             <div class="well col-md-12">
                 <h3>Nova Venda</h3>
-
+                       
                 <form action={{ url('insertvendas') }} method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                <div class="form-group col-lg-12">
@@ -13,8 +13,10 @@
                                 <option value="">Nome Cliente</option>
                         @foreach($clientes as $nome)
                                 <option value= "{{ $nome->nome }}"> {{ $nome->nome }}</option>
+
                         @endforeach
                         </select>
+
                </div>
 
                   <div class="form-group col-lg-6">
@@ -22,9 +24,13 @@
                         <select name="nome_produto" id="nome_cliente" class="form-control" required="Obriatoriio">
                                 <option value="">Nome Produto ....</option>
                         @foreach($produtos as $nome)
+                        @if($nome->unidade > 0)
                                 <option value= "{{ $nome->nome }}"> {{ $nome->nome }}</option>
+                        @endif()
+
                         @endforeach
                         </select>
+                          
                </div>
 
                 <div class="form-group col-lg-6">
@@ -38,9 +44,16 @@
 
                 <div class="form-group col-md-6">
                     <label for="total_venda">Preço</label>
-                    <input type="text" class="form-control" name="total_venda" required="Obriatoriio">    
+                    <select name="total_venda" id="tipo_pagto" class="form-control" required="Obriatoriio">
+                                <option value="">Escolha</option>
+                                @foreach($produtos as $getpreco)
+                                @if($getpreco->unidade > 0)
+                                <option value= "{{$getpreco->precocompra}}">{{$getpreco->nome.' '.$getpreco->precocompra}}$</option>
+                                @endif()
+                                @endforeach
+                       </select>    
                 </div>
-
+              
                 <div class="form-group col-md-6">
                 <label for="desconto">Desconto</label>
                 <input type="text" class="form-control" name="desconto" required="Obriatoriio"> 
@@ -48,7 +61,7 @@
 
                 <div class="form-group col-md-6">
                 <label for="data">Data Compra</label>
-                <input type="text" class="form-control" name="data_compra" required="Obriatoriio"> 
+                <input type="text" class="form-control" name="data_compra" required="Obriatoriio" id="datepicker"> 
                 </div>
                  <div class="form-group col-lg-4">
                     <label for="nome_cliente">Tipo de Pagamento</label>

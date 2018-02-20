@@ -206,10 +206,6 @@
 @yield('content')
 
 </div>
-<div class="row-fluid">
-  <div class="col-md-12 footer">
-   <h5>Todos os direitos reservados</h5>
-</div>
-</div>
+
 </body>
 </html>

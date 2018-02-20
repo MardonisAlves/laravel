@@ -10,8 +10,14 @@ Route::post('cadproduto','FileController@fileupload')->name('Formprodutos');
 
 Route::get('vendas','HomeController@vendas')->name('vendas');
 Route::post('insertvendas','HomeController@insertvendas');
+
+Route::get('Getvendas','HomeController@Getvendas');
+
+Route::post('updateEditEstoque','HomeController@updateEditEstoque');
+
 Route::get('cad_cliente','HomeController@cad_cliente');
 Route::post('isertClientes','HomeController@isertClientes');
+Route::get('/getPrecoProdutos','HomeController@getPrecoProdutos');
 
 
 // Rotas do Front-end

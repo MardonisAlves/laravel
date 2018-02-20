@@ -20,19 +20,23 @@ class HomeController extends Controller {
 	 
 public function index()	{
 
-$produtos = Produto::all();
-$vendas = vendas::all();
+$produtos = DB::table('produtos')->orderBy('precocompra','desc')->get();
 
-foreach($produtos as $total){
-	 $total->precocompra * $total->quantidade;
-}
+$vendas = DB::table('vendas')
+					->join('produtos' , function($join){
+					$join->on('nome_produto', '=' , 'nome');
+					})->orderBy('data_compra' , 'asc')->get();
 
-			/*$search = \Request::get('search');
-			$offices = vendas::where('nome_cliente','like','%'.$search.'%')
-			->orderBy('nome_cliente')
-			->paginate(2);*/
- 
- 	return view('home',compact('produtos','vendas'));
+/* SOMA de Lucro das Vendas */
+$total_venda = DB::table('vendas')->orderBy('created_at')->sum('total_venda');
+
+$zeroestoque = DB::table('produtos')->where('unidade', '=', 2)->get();
+
+
+// DB::table('table_name')->distinct()->get(['column_name']);
+
+ 	
+ 	return view('home',compact('produtos','vendas','zeroestoque','total_venda'));
 
 	}
 	
@@ -49,9 +53,20 @@ foreach($produtos as $total){
 
 		return view('Formvenda',['clientes' =>  $clientes,'produtos' => $produtos]);
 	}
+	
+	// Atualizar produtos
+
+	public function updateEditEstoque(Request $Request){
+	
+
+	produto::where('nome', 'Panela  de Pressao')
+          ->update(['quantidade' => 4]);
+
+	
+	}
 
 	public function insertvendas(Request $Request){
-		
+		// inserts vendas
 		$vendas = new vendas();
 		$vendas->nome_produto=$Request->nome_produto;
 		$vendas->nome_cliente=$Request->nome_cliente;
@@ -60,16 +75,54 @@ foreach($produtos as $total){
 		$vendas->quantidade=$Request->quantidade;
 		$vendas->tipo_pagto=$Request->tipo_pagto;
 		$vendas->parcelas=$Request->parcelas;
-
-		$desconto =  $Request->total_venda * $Request->quantidade / 100 * $Request->desconto;
-		$total =  $Request->total_venda * $Request->quantidade - $desconto;
+// Corrigir a porcetagem de juros aplicada nas vendas
+	echo 'desconto'.'<br>'. $desconto =  $Request->total_venda * $Request->quantidade / 100 * $Request->desconto;
+	echo $total =  $Request->total_venda * $Request->quantidade - $desconto;
 
 		$vendas->total_venda=$total;
 		$vendas->desconto=$Request->desconto;
 		$vendas->data_compra = $Request->data_compra;
 		$vendas->save();
-		return redirect()->route('home');// redireciona para uma rota sem precisar passar novamente as variaveis
+	 
+//update Estoque
 
+$editEstoque = DB::table('produtos')
+->where('nome', '=', $Request->nome_produto)->get();
+
+			foreach ($editEstoque as $key => $value) {
+				echo $estoque = $value->unidade - $Request->quantidade;
+					if($estoque < 0){
+						return redirect('vendas');
+					}else{
+					produto::where('nome', $Request->nome_produto)
+          ->update(['unidade' => $estoque ]);
+					}
+}
+
+
+			
+
+// redirecionar para o form update vendas
+
+$editvendas = DB::table('vendas')->where('nome_cliente' , '=', $Request->nome_cliente)->paginate(8);
+
+          	return redirect('Getvendas');
+
+			
+	}
+
+
+	public function Getvendas(Request  $Request){
+
+		
+			$editvendas = vendas::where('nome_cliente','like','%'.$Request->search.'%')
+			->orderBy('nome_cliente')
+			->where('status' , '=', 0)
+			->paginate(10);
+
+	return view('Getvendas',['editvendas' => $editvendas]);
+
+		
 	}
 
 
@@ -78,13 +131,12 @@ foreach($produtos as $total){
 		return view('auth/register');
 	}
 
-	public function contato(){
 
-		return view('contato/contato');
-	}
+
 public function isertClientes(Request $Request){
 	// verifica o request se o cliente ja esta cadastrado
-	$tabclientes = DB::table('clientes')->where('nome', '=', $Request->nome)->get();
+	$tabclientes = DB::table('clientes')
+	->where('nome', '=', $Request->nome)->get();
 
 	foreach($tabclientes as $cad){
 		if($cad->nome = $Request->nome){
